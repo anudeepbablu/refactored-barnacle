@@ -1,0 +1,7 @@
+README.md
+setup.py
+EmbeddingFineTune.egg-info/PKG-INFO
+EmbeddingFineTune.egg-info/SOURCES.txt
+EmbeddingFineTune.egg-info/dependency_links.txt
+EmbeddingFineTune.egg-info/requires.txt
+EmbeddingFineTune.egg-info/top_level.txt

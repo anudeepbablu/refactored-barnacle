@@ -75,7 +75,7 @@ Train data should be a json file, where each line is a dict like this:
 `query` is the query, and `pos` is a list of positive texts, `neg` is a list of negative texts.
 If you have no negative texts for a query, you can random sample some from the entire corpus as the negatives.
 
-See [toy_finetune_data.jsonl](https://gitlab-master.nvidia.com/sae-industry/telco/ai-workflows/rag/att-rag-demo/-/blob/janaki/fine-tune/example/ds_config.json?ref_type=heads) for a toy data file.
+See [toy_finetune_data.jsonl](https://github.com/anudeepbablu/refactored-barnacle/blob/main/fine-tune/example/toy_finetune_data.jsonl) for a toy data file.
 
 #### Hard Negatives 
 
@@ -122,7 +122,7 @@ torchrun --nproc_per_node {number of gpus} \
 ```
 
 **some important arguments**:
-- `per_device_train_batch_size`: batch size in training. In most of cases, larger batch size will bring stronger performance. You can expand it by enabling `--fp16`, `--deepspeed ./df_config.json` (df_config.json can refer to [ds_config.json](./ds_config.json)), `--gradient_checkpointing`, etc. 
+- `per_device_train_batch_size`: batch size in training. In most of cases, larger batch size will bring stronger performance. You can expand it by enabling `--fp16`, `--deepspeed ./df_config.json` (df_config.json can refer to [ds_config.json](fine-tune/example/ds_config.json)), `--gradient_checkpointing`, etc. 
 - `train_group_size`: the number of positive and negatives for a query in training.
 There are always one positive, so this argument will control the number of negatives (#negatives=train_group_size-1).
 Noted that the number of negatives should not be larger than the numbers of negatives in data `"neg":List[str]`.
@@ -143,7 +143,7 @@ After fine-tuning the model, you can load it easily in the same way as before.
 Please replace the query_instruction_for_retrieval with your instruction if you set a different value for hyper-parameter --query_instruction_for_retrieval when fine-tuning.
 
 ### 5. Evaluate model
-We provide [a simple script](https://gitlab-master.nvidia.com/sae-industry/telco/ai-workflows/rag/att-rag-demo/-/blob/janaki/fine-tune/eval_msmarco.py?ref_type=heads) to evaluate the model's performance on MSMARCO, a widely used retrieval benchmark. 
+We provide [a simple script](https://github.com/anudeepbablu/refactored-barnacle/blob/main/fine-tune/eval_msmarco.py) to evaluate the model's performance on MSMARCO, a widely used retrieval benchmark. 
 
 First, install `faiss`, a popular approximate nearest neighbor search library:
 ```bash

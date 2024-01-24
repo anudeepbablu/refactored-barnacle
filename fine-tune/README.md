@@ -56,7 +56,7 @@ You also can set `os.environ["CUDA_VISIBLE_DEVICES"]=""` to make all GPUs unavai
 ### 1. Installation
 * **from source**
 ```
-git clone https://gitlab-master.nvidia.com/sae-industry/telco/ai-workflows/rag/att-rag-demo.git
+git clone https://github.com/anudeepbablu/ubiquitous-pancake.git
 cd fine-tune
 pip install  .
 ```

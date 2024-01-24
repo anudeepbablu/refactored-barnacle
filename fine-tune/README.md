@@ -5,7 +5,7 @@
 Follow the [example](https://github.com/anudeepbablu/refactored-barnacle/tree/main/fine-tune/example) in this repo to prepare data and fine-tune your model. 
 Some suggestions:
 - Mine hard negatives following this [example](https://github.com/anudeepbablu/refactored-barnacle/tree/main/fine-tune/example), which can improve the retrieval performance.
-- In general, larger hyper-parameter `per_device_train_batch_size` brings better performance. You can expand it by enabling `--fp16`, `--deepspeed df_config.json` (df_config.json can refer to [ds_config.json](https://github.com/anudeepbablu/refactored-barnacle/blob/main/fine-tune/example/toy_finetune_data.jsonl), `--gradient_checkpointing`, etc.
+- In general, larger hyper-parameter `per_device_train_batch_size` brings better performance. You can expand it by enabling `--fp16`, `--deepspeed df_config.json` (df_config.json can refer to [ds_config.json](https://github.com/anudeepbablu/refactored-barnacle/blob/main/fine-tune/example/ds_config.json), `--gradient_checkpointing`, etc.
 - If you pre-train e5/dragon/Nvovle on your data, the pre-trained model cannot be directly used to calculate similarity, and it must be fine-tuned with contrastive learning before computing similarity.
 - If the accuracy of the fine-tuned model is still not high, it is recommended to use/fine-tune the cross-encoder model (reranker) to re-rank top-k results. Hard negatives also are needed to fine-tune reranker.
 
